@@ -5,7 +5,7 @@ namespace interworks_assignment.Models.DiscountManagement
 {
     public class Discount : BaseEntity
     {
-        public float DiscounPrice { get; set; }
+        public float DiscountedPrice { get; set; }
         
         public int OrderId { get; set; }
         public Order? Order { get; set; }

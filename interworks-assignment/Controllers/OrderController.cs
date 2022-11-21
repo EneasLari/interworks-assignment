@@ -30,6 +30,14 @@ namespace interworks_assignment.Controllers
             return Ok(_repository.Order.GetAll());
         }
 
+        [HttpPost("[action]")]
+        public IActionResult SetFinalPriceOfOrder(int orderid)
+        {
+            _repository.Order.SetFinalPriceOfOrder(orderid);
+            _repository.Save();
+            return Ok(_repository.Order.GetAll());
+        }
+
         [HttpPut]
         public IActionResult UpdateOrder(Order order) {
             _repository.Order.Update(order);

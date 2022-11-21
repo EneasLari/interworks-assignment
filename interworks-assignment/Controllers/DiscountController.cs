@@ -21,6 +21,13 @@ namespace interworks_assignment.Controllers
             return Ok(customers);
         }
 
+        [HttpGet("[action]")]
+        public IActionResult GetDiscountsByOrderId(int orderId)
+        {
+            var discounts = _repository.Discount.GetDiscountsByOrderId(orderId);
+            return Ok(discounts);
+        }
+
         [HttpPost]
         public IActionResult CreateDiscount(Discount discount)
         {
