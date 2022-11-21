@@ -1,13 +1,14 @@
 ﻿using interworks_assignment.Data;
 using interworks_assignment.Models.Base;
+using interworks_assignment.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace interworks_assignment.Repositories
 {
     public class Repository<T>: IRepository<T> where T : BaseEntity
     {
-        private DataContext _dataContext;
-        private DbSet<T> _dbSet;
+        protected DataContext _dataContext;
+        protected DbSet<T> _dbSet;
         public Repository(DataContext dataContext)
         {
             this._dataContext = dataContext;

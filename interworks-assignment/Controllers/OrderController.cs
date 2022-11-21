@@ -1,6 +1,6 @@
 ﻿using interworks_assignment.Models.DiscountManagement;
 using interworks_assignment.Models.OrderManagement;
-using interworks_assignment.Repositories;
+using interworks_assignment.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace interworks_assignment.Controllers
@@ -23,9 +23,9 @@ namespace interworks_assignment.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateOrder(Order order)
+        public IActionResult CreateOrder(NewOrderDto neworder)
         {
-            _repository.Order.Create(order);
+            _repository.Order.CreateNewOrder(neworder);
             _repository.Save();
             return Ok(_repository.Order.GetAll());
         }

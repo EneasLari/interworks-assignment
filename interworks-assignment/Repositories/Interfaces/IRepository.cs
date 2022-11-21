@@ -1,8 +1,8 @@
 ﻿using interworks_assignment.Models.Base;
 
-namespace interworks_assignment.Repositories
+namespace interworks_assignment.Repositories.Interfaces
 {
-    public interface IRepository<T> where T :BaseEntity
+    public interface IRepository<T> where T : BaseEntity
     {
         IEnumerable<T> GetAll();
         T GetById(int id);

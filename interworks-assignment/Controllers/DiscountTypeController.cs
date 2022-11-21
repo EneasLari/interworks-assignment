@@ -1,5 +1,5 @@
 ﻿using interworks_assignment.Models.DiscountManagement;
-using interworks_assignment.Repositories;
+using interworks_assignment.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace interworks_assignment.Controllers

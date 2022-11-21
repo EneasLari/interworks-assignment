@@ -1,6 +1,6 @@
 ﻿using interworks_assignment.Data;
 using interworks_assignment.Models.UserManagement;
-using interworks_assignment.Repositories;
+using interworks_assignment.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace interworks_assignment.Controllers

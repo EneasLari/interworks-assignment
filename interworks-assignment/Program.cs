@@ -1,5 +1,6 @@
 using interworks_assignment.Data;
 using interworks_assignment.Repositories;
+using interworks_assignment.Repositories.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.EntityFrameworkCore;

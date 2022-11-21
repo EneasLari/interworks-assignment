@@ -1,6 +1,6 @@
 ﻿using interworks_assignment.Data;
 using interworks_assignment.Models.CustomerManagement;
-
+using interworks_assignment.Repositories.Interfaces;
 
 namespace interworks_assignment.Repositories
 {

@@ -1,6 +1,6 @@
 ﻿using interworks_assignment.Models.UserManagement;
 
-namespace interworks_assignment.Repositories
+namespace interworks_assignment.Repositories.Interfaces
 {
     public interface IUserRepository : IRepository<User>
     {

@@ -1,5 +1,6 @@
 ﻿using interworks_assignment.Data;
 using interworks_assignment.Models.UserManagement;
+using interworks_assignment.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using NuGet.Protocol.Core.Types;
 

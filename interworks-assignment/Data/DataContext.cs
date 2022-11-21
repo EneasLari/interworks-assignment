@@ -1,4 +1,5 @@
-﻿using interworks_assignment.Models.CustomerManagement;
+﻿using interworks_assignment.Models.CustomerFieldsManagement;
+using interworks_assignment.Models.CustomerManagement;
 using interworks_assignment.Models.DiscountManagement;
 using interworks_assignment.Models.OrderManagement;
 using interworks_assignment.Models.UserManagement;
@@ -25,6 +26,11 @@ namespace interworks_assignment.Data
         public DbSet<DiscountType> DiscountTypes { get; set; }
 
         public DbSet<Order> Orders { get; set; }
+
+        public DbSet<Field> Fields { get; set; }
+
+        public DbSet<CustomerField> CustomerFields { get; set; }
+
 
     }
 }

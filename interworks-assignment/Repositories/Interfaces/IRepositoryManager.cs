@@ -1,4 +1,4 @@
-﻿namespace interworks_assignment.Repositories
+﻿namespace interworks_assignment.Repositories.Interfaces
 {
     public interface IRepositoryManager
     {
@@ -11,6 +11,10 @@
         IDiscountTypeRepository DiscountType { get; }
 
         IOrderRepository Order { get; }
+
+        IFieldRepository Field { get; }
+
+        ICustomerFieldRepository CustomerField { get; }
         void Save();
     }
 }

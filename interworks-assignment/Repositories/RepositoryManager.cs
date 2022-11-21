@@ -1,8 +1,9 @@
 ﻿using interworks_assignment.Data;
+using interworks_assignment.Repositories.Interfaces;
 
 namespace interworks_assignment.Repositories
 {
-    
+
     public class RepositoryManager : IRepositoryManager
     {
         private DataContext _dataContext;
@@ -11,6 +12,8 @@ namespace interworks_assignment.Repositories
         private IDiscountRepository _discountRepository;
         private IDiscountTypeRepository _discountTypeRepository;
         private IOrderRepository _orderRepository;
+        private IFieldRepository _fieldRepository;
+        private ICustomerFieldRepository _customerFieldRepository;
         public RepositoryManager(DataContext dataContext)
         {
             _dataContext = dataContext;
@@ -70,6 +73,30 @@ namespace interworks_assignment.Repositories
                     _orderRepository = new OrderRepository(_dataContext);
                 }
                 return _orderRepository;
+            }
+        }
+
+        public IFieldRepository Field
+        {
+            get
+            {
+                if (_fieldRepository == null)
+                {
+                    _fieldRepository = new FieldRepository(_dataContext);
+                }
+                return _fieldRepository;
+            }
+        }
+
+        public ICustomerFieldRepository CustomerField
+        {
+            get
+            {
+                if (_customerFieldRepository == null)
+                {
+                    _customerFieldRepository = new CustomerFieldRepository(_dataContext);
+                }
+                return _customerFieldRepository;
             }
         }
 
