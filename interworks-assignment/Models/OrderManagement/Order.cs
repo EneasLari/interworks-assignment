@@ -6,9 +6,7 @@ namespace interworks_assignment.Models.OrderManagement
     public class Order:BaseEntity
     {
         public Order() {
-            //this.IntialPrice = neworder.IntialPrice;
-            //this.CustomerId = neworder.CustomerId;
-            //this.Finalprice = -1;
+
         }
 
         public Order(NewOrderDto newOrder)
