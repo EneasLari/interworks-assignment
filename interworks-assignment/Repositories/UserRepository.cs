@@ -16,6 +16,10 @@ namespace interworks_assignment.Repositories
             return GetAll().OrderBy(c=>c.Name);
         }
 
+        public User GetUserByEmail(string email) { 
+            User found=_dbSet.Where<User>(user => user.Email == email).FirstOrDefault();
+            return found;
+        }
         public void CreateUser(User user) {
             Create(user);
         }

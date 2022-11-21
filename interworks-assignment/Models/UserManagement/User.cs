@@ -1,4 +1,5 @@
 ﻿using interworks_assignment.Models.Base;
+using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection.Metadata;
 
@@ -6,7 +7,16 @@ namespace interworks_assignment.Models.UserManagement
 {
     public class User : BaseEntity
     {
+        public User() { 
+        
+        }
 
+        public User(SignupDto signupDto) {
+            this.Name=signupDto.Name;
+            this.FirstName = signupDto.FirstName;
+            this.LastName = signupDto.LastName;
+            this.Email = signupDto.Email;
+        }
         public string Name { get; set; } = String.Empty;
 
         public string Email { get; set; } = String.Empty;

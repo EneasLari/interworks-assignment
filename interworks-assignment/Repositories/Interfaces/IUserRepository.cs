@@ -6,6 +6,7 @@ namespace interworks_assignment.Repositories.Interfaces
     {
         IEnumerable<User> GetAllUsers();
         void CreateUser(User user);
+        public User GetUserByEmail(string email);
 
         void DeleteUser(int id);
     }
