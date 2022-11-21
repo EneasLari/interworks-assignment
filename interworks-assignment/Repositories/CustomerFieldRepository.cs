@@ -20,7 +20,10 @@ namespace interworks_assignment.Repositories
         //Creates new entry but updates the version so we can track history of a customer's filds
         public void UpdateCustomerField(UpdateCustomerFieldDto customerfield)
         {
-            CustomerField customerfieldExisting = GetById(customerfield.Id);
+            CustomerField customerfieldExisting = GetHistoryByGuid(customerfield.Guid).OrderBy(x=>x.Version).LastOrDefault();
+            if (customerfield == null) { 
+                return;
+            }
             customerfieldExisting.CustomerId=customerfield.CustomerId;
             customerfieldExisting.FieldId=customerfield.FieldId;
             customerfieldExisting.Updated=DateTime.Now;
