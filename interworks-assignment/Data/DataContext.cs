@@ -25,6 +25,8 @@ namespace interworks_assignment.Data
 
         public DbSet<DiscountType> DiscountTypes { get; set; }
 
+        public DbSet<DiscountTypeTemplate> DiscountTypeTemplates { get; set; }
+
         public DbSet<Order> Orders { get; set; }
 
         public DbSet<Field> Fields { get; set; }

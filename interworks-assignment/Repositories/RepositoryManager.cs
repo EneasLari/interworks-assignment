@@ -11,6 +11,7 @@ namespace interworks_assignment.Repositories
         private ICustomerRepository _customerRepository;
         private IDiscountRepository _discountRepository;
         private IDiscountTypeRepository _discountTypeRepository;
+        private IDiscountTypeTemplateRepository _discountTypeTemplateRepository;
         private IOrderRepository _orderRepository;
         private IFieldRepository _fieldRepository;
         private ICustomerFieldRepository _customerFieldRepository;
@@ -61,6 +62,18 @@ namespace interworks_assignment.Repositories
                     _discountTypeRepository = new DiscountTypeRepository(_dataContext);
                 }
                 return _discountTypeRepository;
+            }
+        }
+
+        public IDiscountTypeTemplateRepository DiscountTypeTemplate
+        {
+            get
+            {
+                if (_discountTypeTemplateRepository == null)
+                {
+                    _discountTypeTemplateRepository = new DiscountTypeTemplateRepository(_dataContext);
+                }
+                return _discountTypeTemplateRepository;
             }
         }
 

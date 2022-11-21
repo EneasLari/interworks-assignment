@@ -9,7 +9,7 @@ namespace interworks_assignment.Models.Base
         public DateTime Created { get; set; } = DateTime.UtcNow;
         [JsonIgnore]
         public DateTime Updated { get; set; } = DateTime.UtcNow;
-        [JsonIgnore]
+        [JsonIgnore] 
         public DateTime? Deleted { get; set; } = null;
 
     }

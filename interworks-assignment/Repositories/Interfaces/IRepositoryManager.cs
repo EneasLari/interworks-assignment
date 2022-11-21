@@ -10,6 +10,8 @@
 
         IDiscountTypeRepository DiscountType { get; }
 
+        IDiscountTypeTemplateRepository DiscountTypeTemplate { get; }
+
         IOrderRepository Order { get; }
 
         IFieldRepository Field { get; }
