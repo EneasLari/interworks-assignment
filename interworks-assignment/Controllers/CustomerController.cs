@@ -1,9 +1,7 @@
 ﻿
 using interworks_assignment.Models.CustomerManagement;
-using interworks_assignment.Models.UserManagement;
 using interworks_assignment.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace interworks_assignment.Controllers
 {
@@ -33,14 +31,14 @@ namespace interworks_assignment.Controllers
         }
 
         [HttpPut]
-        public IActionResult UpdateUser(Customer customer) {
+        public IActionResult UpdateCustomer(Customer customer) {
             _repository.Customer.Update(customer);
             _repository.Save();
             return Ok(_repository.Customer.GetAll());
         }
 
         [HttpDelete]
-        public IActionResult Delete(int id)
+        public IActionResult DeleteCustomer(int id)
         {
             _repository.Customer.DeleteCustomer(id);
             _repository.Save();

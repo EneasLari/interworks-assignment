@@ -1,7 +1,6 @@
 ﻿using interworks_assignment.Models.DiscountManagement;
 using interworks_assignment.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace interworks_assignment.Controllers
 {
@@ -23,7 +22,7 @@ namespace interworks_assignment.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateCustomer(Discount discount)
+        public IActionResult CreateDiscount(Discount discount)
         {
             _repository.Discount.Create(discount);
             _repository.Save();
@@ -31,14 +30,14 @@ namespace interworks_assignment.Controllers
         }
 
         [HttpPut]
-        public IActionResult UpdateUser(Discount discount) {
+        public IActionResult UpdateDiscount(Discount discount) {
             _repository.Discount.Update(discount);
             _repository.Save();
             return Ok(_repository.Discount.GetAll());
         }
 
         [HttpDelete]
-        public IActionResult Delete(int id)
+        public IActionResult DeleteDiscount(int id)
         {
             _repository.Discount.DeleteDiscount(id);
             _repository.Save();

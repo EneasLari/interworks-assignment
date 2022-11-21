@@ -2,7 +2,6 @@
 using interworks_assignment.Models.UserManagement;
 using interworks_assignment.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace interworks_assignment.Controllers
 {
@@ -39,7 +38,7 @@ namespace interworks_assignment.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Delete(int id)
+        public IActionResult DeleteUser(int id)
         {
             _repository.User.DeleteUser(id);
             _repository.Save();

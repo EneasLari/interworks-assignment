@@ -9,6 +9,8 @@ namespace interworks_assignment.Repositories
         private IUserRepository _userRepository;
         private ICustomerRepository _customerRepository;
         private IDiscountRepository _discountRepository;
+        private IDiscountTypeRepository _discountTypeRepository;
+        private IOrderRepository _orderRepository;
         public RepositoryManager(DataContext dataContext)
         {
             _dataContext = dataContext;
@@ -44,6 +46,30 @@ namespace interworks_assignment.Repositories
                     _discountRepository = new DiscountRepository(_dataContext);
                 }
                 return _discountRepository;
+            }
+        }
+
+        public IDiscountTypeRepository DiscountType
+        {
+            get
+            {
+                if (_discountTypeRepository == null)
+                {
+                    _discountTypeRepository = new DiscountTypeRepository(_dataContext);
+                }
+                return _discountTypeRepository;
+            }
+        }
+
+        public IOrderRepository Order
+        {
+            get
+            {
+                if (_orderRepository == null)
+                {
+                    _orderRepository = new OrderRepository(_dataContext);
+                }
+                return _orderRepository;
             }
         }
 
