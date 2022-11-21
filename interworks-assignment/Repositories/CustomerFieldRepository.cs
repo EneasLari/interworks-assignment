@@ -11,10 +11,27 @@ namespace interworks_assignment.Repositories
 
         }
 
-        public void CreateNewCustomerField(NewCustomerFieldDto newCustomer)
+        public void CreateNewCustomerField(NewCustomerFieldDto newCustomerfield)
         {
-            CustomerField customerField = new CustomerField(newCustomer);
+            CustomerField customerField = new CustomerField(newCustomerfield);
             Create(customerField);
+        }
+
+        //Creates new entry but updates the version so we can track history of a customer's filds
+        public void UpdateCustomerField(UpdateCustomerFieldDto customerfield)
+        {
+            CustomerField customerfieldExisting = GetById(customerfield.Id);
+            customerfieldExisting.CustomerId=customerfield.CustomerId;
+            customerfieldExisting.FieldId=customerfield.FieldId;
+            customerfieldExisting.Updated=DateTime.Now;
+            customerfieldExisting.Version++;
+            customerfieldExisting.Id = 0;
+            Create(customerfieldExisting);
+        }
+
+        public IEnumerable<CustomerField> GetHistoryByGuid(string guid) { 
+            List<CustomerField> history = _dbSet.Where(x => x.Guid == guid).ToList();
+            return history;
         }
 
         public void DeleteCustomerField(int id)

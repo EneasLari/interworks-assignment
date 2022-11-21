@@ -8,19 +8,25 @@ namespace interworks_assignment.Models.CustomerFieldsManagement
     {
         public CustomerField()
         {
-
+            this.Guid = System.Guid.NewGuid().ToString();
         }
 
         public CustomerField(NewCustomerFieldDto newCustomerFieldDto)
         {
+            this.Guid = System.Guid.NewGuid().ToString();
             this.CustomerId = newCustomerFieldDto.CustomerId;
             this.FieldId = newCustomerFieldDto.FieldId;
         }
+
         public int CustomerId { get; set; }
 
         public Customer? Customer { get; set; }
         public int FieldId { get; set; }
 
         public Field? Field { get; set; }
+
+        public int Version { get; set; } = 1;
+
+        public string Guid { get; set; }
     }
 }

@@ -15,14 +15,21 @@ namespace interworks_assignment.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllFields()
+        public IActionResult GetAllCustomerFields()
         {
-            var customers = _repository.CustomerField.GetAll();
-            return Ok(customers);
+            var customerfields = _repository.CustomerField.GetAll();
+            return Ok(customerfields);
+        }
+
+        [HttpGet("[action]")]
+        public IActionResult GetHistory(string guid)
+        {
+            var customerfields = _repository.CustomerField.GetHistoryByGuid(guid);
+            return Ok(customerfields);
         }
 
         [HttpPost]
-        public IActionResult CreateField(NewCustomerFieldDto custfield)
+        public IActionResult CreateCustomerField(NewCustomerFieldDto custfield)
         {
             _repository.CustomerField.CreateNewCustomerField(custfield);
             _repository.Save();
@@ -30,14 +37,14 @@ namespace interworks_assignment.Controllers
         }
 
         [HttpPut]
-        public IActionResult UpdateField(CustomerField custfield) {
-            _repository.CustomerField.Update(custfield);
+        public IActionResult UpdateCustomerField(UpdateCustomerFieldDto custfield) {
+            _repository.CustomerField.UpdateCustomerField(custfield);
             _repository.Save();
             return Ok(_repository.CustomerField.GetAll());
         }
 
         [HttpDelete]
-        public IActionResult DeleteField(int id)
+        public IActionResult DeleteCustomerField(int id)
         {
             _repository.CustomerField.DeleteCustomerField(id);
             _repository.Save();
