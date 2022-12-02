@@ -24,6 +24,12 @@ namespace interworks_assignment.Repositories
         public void SetFinalPriceOfOrder(int orderId) {
             Order orderdb = GetById(orderId);
             orderdb.Finalprice = orderdb.IntialPrice;
+
+            Repository<Discount> discountrepo = new Repository<Discount>(_dataContext);
+            IEnumerable<Discount> discountstodelete = discountrepo.GetAll().Where(x => x.OrderId == orderId);
+            _datacontext.RemoveRange(discountstodelete);
+            _datacontext.SaveChanges();
+
             //get all discounttypetemplates and choose one random
             Repository<DiscountTypeTemplate> discountTypeTemplaterepo = new Repository<DiscountTypeTemplate>(_dataContext);
             List<DiscountTypeTemplate> templates = discountTypeTemplaterepo.GetAll().ToList();
@@ -53,7 +59,7 @@ namespace interworks_assignment.Repositories
                 //The discounted price is the price that get the discount applied to the last final price
                 discount.DiscountedPrice = orderdb.Finalprice*discountType.DiscountPercentage;
 
-                Repository<Discount> discountrepo = new Repository<Discount>(_dataContext);
+                
                 discountrepo.Create(discount);
                 _datacontext.SaveChanges();
                 //abstract final price by discount price
